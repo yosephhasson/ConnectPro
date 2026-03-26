@@ -1,65 +1,139 @@
-## ConnectPro
-Developed with React, Material UI, Redux and NoSQL cloud-based storage.
+# ConnectPro
+
+A full-stack professional networking platform built with React, Redux Toolkit, and Firebase, enabling users to authenticate, create posts, and interact with a real-time social feed.
 
 ![HomeGif](https://github.com/MDbrosev/LinkedIn/blob/master/src/images/LinkedIn.gif)
 
-<br />
+## Overview
 
-![Login page](https://raw.githubusercontent.com/MDbrosev/linkedin/master/src/images/loginRegister.PNG?token=AFPQ6R2LNNA3NCEKUVM2ME3BVPMDO)
+ConnectPro simulates a modern professional networking experience, allowing users to build a profile, share updates, and view a dynamic feed powered by cloud-based data synchronization.
+This project demonstrates real-world frontend architecture patterns, including centralized state management, authentication flows, and real-time data handling.
 
-<br />
+## Features
+```text
+🔐 Authentication
+Firebase Authentication (email/password)
+Persistent user sessions via onAuthStateChanged
 
-![Home page](https://raw.githubusercontent.com/MDbrosev/linkedin/master/src/images/homepage.PNG?token=AFPQ6R64US3RRJDQY5YHXPLBVPMDM)
+🧠 State Management
+Centralized state using Redux Toolkit
+Auth and user state managed globally
 
+📰 Real-Time Feed
+Posts stored in Firebase Firestore
+Live updates using onSnapshot
+Animated UI updates with react-flip-move
 
-## Setup
+✍️ Post Creation
+Users can create and submit posts
+Immediate feed updates after submission
 
-1. Run `npm` or `yarn` to install dependencies.
-2. Rename `firebaseExample.js` to `firebase.js` file in src.
-3. Add your web app's Firebase configuration from project settings.
-4. Run `yarn start`
+🎨 Modern UI
+Material UI components
+Responsive layout with modular components
+Clean separation of concerns (Header, Feed, Sidebar, Widgets)
+```
 
-## Deployment
+## Tech Stack
+Frontend
+```text
+React (Functional Components + Hooks)
+Redux Toolkit
+Material UI
+```
+Backend / Services
+```text
+Firebase Authentication
+Firebase Firestore (real-time database)
+```
+Other
+```text
+React Flip Move (animations)
+```
 
-### Initialization
-1. Run `firebase login`
-2. Run `firebase init`
-3. Select `Hosting`
-4. Select `Use an existing project` and select your firebase project.
-5. What do you want to use as your public directory? `Build`
-6. Configure as a single page app? `Yes`
+## Architecture
 
-### Deploy
-1. Run `npm run build`
-2. Run `firebase deploy`
+The project follows a feature-based structure to promote scalability and maintainability:
+```text
+src/
+├── app/              # Redux store configuration
+├── features/
+│   ├── auth/         # Authentication logic and components
+│   └── posts/        # Feed and post management
+├── components/       # UI components (Header, Sidebar, Widgets)
+├── firebase.js       # Firebase configuration
+└── App.js            # Root application logic
+```
 
-## Available Scripts
+## Key Design Decisions
+```text
+Redux Toolkit used for predictable global state management
+Firebase chosen for rapid backend integration and real-time capabilities
+Feature-based folder structure for scalability and separation of concerns
+Real-time listeners (onSnapshot) to simulate production-grade feed updates
+```
 
-In the project directory, you can run:
+## Getting Started
 
-### `yarn start`
+### Prerequisites
+```text
+Node.js (v16+ recommended)
+Firebase project (Auth + Firestore enabled)
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Installation
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```text
+git clone https://github.com/yosephhasson/ConnectPro.git
+cd ConnectPro
+npm install
+```
 
-### `yarn test`
+### Environment Setup
 
-Launches the test runner in the interactive watch mode.<br />
+Create a Firebase project and update your configuration in:
+```text
+// src/firebase.js
+```
 
-### `yarn build`
+Add your Firebase config:
+```javascript
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_BUCKET",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Run the App
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### How It Works
+```text
+Users authenticate via Firebase Auth
+Auth state is stored globally using Redux
+Posts are stored in Firestore
+The feed listens for real-time updates using onSnapshot
+UI updates dynamically when new posts are added
+```
 
+### Future Improvements
+```text
+Add comments and reactions system
+Implement user connections / networking graph
+Introduce backend API layer (Node.js or .NET)
+Add notifications system
+Improve error handling and logging
+Upgrade to latest React / build tooling
+```
 
-### `yarn eject`
+### Disclaimer
+```text
+This project is intended for demonstration and portfolio purposes. It simulates core features of a professional networking platform and is not affiliated with LinkedIn.
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
