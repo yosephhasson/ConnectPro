@@ -1,4 +1,4 @@
-## LinkedIn Re-implementation
+## ConnectPro
 Developed with React, Material UI, Redux and NoSQL cloud-based storage.
 
 ![HomeGif](https://github.com/MDbrosev/LinkedIn/blob/master/src/images/LinkedIn.gif)
